@@ -163,7 +163,7 @@ end)
 test("getcallingscript", {})
 
 test("getscriptclosure", {"getscriptfunction"}, function()
-	local module = game:GetService("CoreGui").RobloxGui.Modules.Common.Constants
+	local module = game:GetService("CoreGui").RobloxGui.Modules.DevConsole.Constants
 	local constants = getrenv().require(module)
 	local generated = getscriptclosure(module)()
 	assert(constants ~= generated, "Generated module should not match the original")
@@ -858,7 +858,7 @@ test("WebSocket.connect", {}, function()
 		OnMessage = {"table", "userdata"},
 		OnClose = {"table", "userdata"},
 	}
-	local ws = WebSocket.connect("ws://echo.websocket.events")
+	local ws = WebSocket.connect("ws://websocket-echo.com")
 	assert(type(ws) == "table" or type(ws) == "userdata", "Did not return a table or userdata")
 	for k, v in pairs(types) do
 		if type(v) == "table" then
